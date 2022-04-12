@@ -1,0 +1,129 @@
+MENU = {
+    "espresso": {
+        "ingredients": {
+            "water": 50,
+            "coffee": 18,
+        },
+        "cost": 1.5,
+    },
+    "latte": {
+        "ingredients": {
+            "water": 200,
+            "milk": 150,
+            "coffee": 24,
+        },
+        "cost": 2.5,
+    },
+    "cappuccino": {
+        "ingredients": {
+            "water": 250,
+            "milk": 100,
+            "coffee": 24,
+        },
+        "cost": 3.0,
+    }
+}
+
+resources = {
+    "water": 300,
+    "milk": 200,
+    "coffee": 100,
+}
+
+penny=0.01
+dime=0.1
+nickel=0.05
+quarter=0.25
+
+repeat=True
+while repeat:
+    decision=input('what would you like?(espresso,latte,cappuccino): ')
+
+    if decision=='report':
+        print(resources)
+
+    elif decision=='espresso':
+        if resources['water'] < MENU['espresso']['ingredients']['water']:
+            print('we have insufficient of water , iam sorry ')
+            repeat = False
+        elif resources['coffee'] < MENU['espresso']['ingredients']['coffee']:
+            print('we have insufficient of coffee ')
+            repeat = False
+        else:
+            print('please insert coins ')
+            quarters = int(input('how many quarters? '))
+            dimes = int(input('how many dimes? '))
+            nickels = int(input('how many nickels? '))
+            pennys = int(input('how many penny? '))
+
+            amount_needed = 1.50
+            amount_recieved = (penny * pennys) + (nickel * nickels) + (dime * dimes) + (quarter * quarters)
+            if amount_recieved >= amount_needed:
+                change = amount_recieved - amount_needed
+                print(f'thank you and here is your change of {change}')
+                print('here is you espresso enjoy ')
+                resources['water'] = resources['water'] - MENU['espresso']['ingredients']['water']
+                resources['coffee'] -= MENU['espresso']['ingredients']['coffee']
+            elif amount_recieved < amount_needed:
+                print('sorry you need to pay more money and your money is refunded ')
+
+
+    elif decision=='latte':
+        if resources['water'] < MENU['latte']['ingredients']['water']:
+            print('we have insufficient of water , iam sorry ')
+            repeat = False
+        elif resources['coffee'] < MENU['latte']['ingredients']['coffee']:
+            print('we have insufficient of coffee ')
+            repeat = False
+        elif resources['milk'] < MENU['latte']['ingredients']['milk']:
+            print('we have insufficient of milk ')
+            repeat = False
+        else:
+            print('please insert coins ')
+            quarters = int(input('how many quarters? '))
+            dimes = int(input('how many dimes? '))
+            nickels = int(input('how many nickels? '))
+            pennys = int(input('how many penny? '))
+
+            amount_needed = 2.50
+            amount_recieved = (penny * pennys) + (nickel * nickels) + (dime * dimes) + (quarter * quarters)
+            if amount_recieved >= amount_needed:
+                change = amount_recieved - amount_needed
+                print(f'thank you and here is your change of {change}')
+                print('here is you latte enjoy ')
+                resources['water'] -= MENU['latte']['ingredients']['water']
+                resources['coffee'] -= MENU['latte']['ingredients']['coffee']
+                resources['milk'] -= MENU['latte']['ingredients']['milk']
+            elif amount_recieved < amount_needed:
+                print('sorry you need to pay more money and your money is refunded ')
+
+
+    elif decision=='cappuccino':
+        if resources['water'] < MENU['cappuccino']['ingredients']['water']:
+            print('we have insufficient of water , iam sorry ')
+            repeat = False
+        elif resources['coffee'] < MENU['cappuccino']['ingredients']['coffee']:
+            print('we have insufficient of coffee ')
+            repeat = False
+        elif resources['milk'] < MENU['cappuccino']['ingredients']['milk']:
+            print('we have insufficient of milk ')
+            repeat = False
+        else:
+            print('please insert coins ')
+            quarters = int(input('how many quarters? '))
+            dimes = int(input('how many dimes? '))
+            nickels = int(input('how many nickels? '))
+            pennys = int(input('how many penny? '))
+
+            amount_needed = 3
+            amount_recieved = (penny * pennys) + (nickel * nickels) + (dime * dimes) + (quarter * quarters)
+            if amount_recieved >= amount_needed:
+                change = amount_recieved - amount_needed
+                print(f'thank you and here is your change of {change}')
+                print('here is you cappuccino enjoy ')
+                resources['water'] -= MENU['cappuccino']['ingredients']['water']
+                resources['coffee'] -= MENU['cappuccino']['ingredients']['coffee']
+                resources['milk'] -= MENU['cappuccino']['ingredients']['milk']
+            elif amount_recieved < amount_needed:
+                print('sorry you need to pay more money and your money is refunded ')
+
