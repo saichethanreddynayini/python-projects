@@ -1,0 +1,21 @@
+birth_year = int(input('what is your birth year: '))
+age = 2019 - birth_year
+print(age)
+import datetime
+birth_month = int(input('enter the month number '))
+current_month = datetime.datetime.now().month
+month = current_month-birth_month
+print(month)
+import datetime
+c = datetime.date(2019, 2, 27)
+import datetime
+n = datetime.date(2019, 9, 25)
+days = n-c
+print(days)
+import datetime
+nsr = datetime.date(2001, 2, 27)
+import datetime
+td = datetime.date(2020, 6, 22)
+days = td-nsr
+print("from your birth you lived= ")
+print (days)
