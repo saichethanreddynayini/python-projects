@@ -1,0 +1,43 @@
+import random
+india =True
+while india:
+    game=input('what do you choose?,type rock for rock,paper for paper and sissor for sissor: ')
+    if game==None:
+        print('first enter something or something valid noob')
+    else:
+        comp=random.randint(0,2)
+        if game=='rock' and comp==0:
+            print('both choosen rock, so its draw')
+        elif game=='rock' and comp==1:
+            print('you lost,you choosen rock and computer choosen paper')
+        elif game=='rock' and comp==2:
+            print('great you won,you choose rock and computer choose sissor')
+        elif game=='paper' and comp==0:
+            print('wow you won ,you choose paper and computer choose rock')
+        elif game=='paper' and comp==1:
+            print('you and computer choose papers so its draw')
+        elif game=='paper' and comp==2:
+            print('you lost,you choose paper but computer choose sissor')
+        elif game=='sissor' and comp==0:
+            print('you lost,you choose sissor but computer choose rock')
+        elif game=='sissor' and comp==1:
+            print('you won,you choose sissor and computer choose paper')
+        elif game=='sissor' and comp==2:
+            print('you both choosen sissors so its draw')
+        else:
+            print('you choosen a wrong thing or you might not have choosen')
+    val=True
+    while val:
+        pak=input('want to continue playing then type ok or type exit: ')
+        if pak=='ok':
+            val=False
+        elif pak=='exit':
+            val=False
+            india=False
+        if pak=='exit':
+            india=False
+        elif pak=='ok':
+            india=True
+        else:
+            print('enter something valid please')
+            india=False
