@@ -1,0 +1,29 @@
+from replit import clear
+print('welcome to secret auction program')
+
+auction={}
+
+def highest_bidder():
+  hightest_amount=0
+  for key in auction:
+    amount=auction[key]
+    if amount>hightest_amount:
+      hightest_amount=amount
+      winner =key
+  print(f'the highest bid amount is{hightest_amount}of bidder {winner}')
+
+repeat=True
+while repeat:
+  name=input('enter the name of the bider: ')
+  bid=int(input('enter the bid amount: $'))
+  decision=input('enter yes or no to continue the bid').lower()
+  auction[name]=bid
+  
+  if decision=='yes':
+    clear()
+    repeat=True
+  else:
+    repeat=False
+    highest_bidder()
+
+    
